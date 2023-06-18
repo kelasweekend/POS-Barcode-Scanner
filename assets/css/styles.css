@@ -47,6 +47,7 @@ p {
     margin-left: 10px;
     font-weight: 600;
     margin-bottom: 0px;
+    border: none;
 }
 .kiri .search .cari:focus {
     outline: none;
