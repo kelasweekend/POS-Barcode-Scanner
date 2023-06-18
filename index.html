@@ -23,94 +23,73 @@
                                     d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
                             </svg>
                         </div>
-                        <p class="cari">Cari Product ...</p>
+                        <!-- <p class="cari">Cari Product ...</p> -->
+                        <input type="text" id="search-input" data-search class="cari" placeholder="Kode Product">
                     </div>
-                    <button class="btn btn-primary" type="button" data-bs-toggle="modal"
-                        data-bs-target="#exampleModal">Scan Barcode</button>
+                    <button class="btn btn-primary" type="button" id="startButton">Scan Barcode</button>
                 </div>
             </div>
 
             <div class="menu">
-                <div class="row">
-                    <div class="col-md-3">
-                        <div class="card p-3">
+                <div class="row" id="list-product">
+                    <div class="col-md-3" data-filter-item data-kode="8886008101091">
+                        <div class="card p-3 add-to-cart" data-name="Product 1" data-price="10000">
                             <img src="https://images.soco.id/362-Parfum-dengan-Aroma-Vanilla-100-Ribu.jpg.jpeg" alt="">
                             <p class="mb-2">NOKA Perfume - Bloom</p>
                             <p class="mb-2">Rp. 50.000</p>
                         </div>
                     </div>
-                    <div class="col-md-3">
-                        <div class="card p-3">
+                    <div class="col-md-3" data-filter-item data-kode="8999999572693">
+                        <div class="card p-3 add-to-cart" data-name="Product 2" data-price="10000">
                             <img src="https://images.soco.id/362-Parfum-dengan-Aroma-Vanilla-100-Ribu.jpg.jpeg" alt="">
                             <p class="mb-2">NOKA Perfume - Bloom</p>
                             <p class="mb-2">Rp. 50.000</p>
                         </div>
                     </div>
-                    <div class="col-md-3">
-                        <div class="card p-3">
+                    <div class="col-md-3" data-filter-item data-kode="ASDQSAX">
+                        <div class="card p-3 add-to-cart" data-name="Product 3" data-price="10000">
                             <img src="https://images.soco.id/362-Parfum-dengan-Aroma-Vanilla-100-Ribu.jpg.jpeg" alt="">
                             <p class="mb-2">NOKA Perfume - Bloom</p>
                             <p class="mb-2">Rp. 50.000</p>
                         </div>
                     </div>
-                    <div class="col-md-3">
-                        <div class="card p-3">
+                    <div class="col-md-3" data-filter-item data-kode="ASDQSAX">
+                        <div class="card p-3 add-to-cart" data-name="Product 4" data-price="10000">
                             <img src="https://images.soco.id/362-Parfum-dengan-Aroma-Vanilla-100-Ribu.jpg.jpeg" alt="">
                             <p class="mb-2">NOKA Perfume - Bloom</p>
                             <p class="mb-2">Rp. 50.000</p>
                         </div>
                     </div>
-                    <div class="col-md-3">
-                        <div class="card p-3">
+                    <div class="col-md-3" data-filter-item data-kode="ASDQSAX">
+                        <div class="card p-3 add-to-cart" data-name="Product 4" data-price="10000">
                             <img src="https://images.soco.id/362-Parfum-dengan-Aroma-Vanilla-100-Ribu.jpg.jpeg" alt="">
                             <p class="mb-2">NOKA Perfume - Bloom</p>
                             <p class="mb-2">Rp. 50.000</p>
                         </div>
                     </div>
-                    <div class="col-md-3">
-                        <div class="card p-3">
+                    <div class="col-md-3" data-filter-item data-kode="ASDQSAX">
+                        <div class="card p-3 add-to-cart" data-name="Product 5" data-price="10000">
                             <img src="https://images.soco.id/362-Parfum-dengan-Aroma-Vanilla-100-Ribu.jpg.jpeg" alt="">
                             <p class="mb-2">NOKA Perfume - Bloom</p>
                             <p class="mb-2">Rp. 50.000</p>
                         </div>
                     </div>
-                    <div class="col-md-3">
-                        <div class="card p-3">
+                    <div class="col-md-3" data-filter-item data-kode="ASDQSAX">
+                        <div class="card p-3 add-to-cart" data-name="Product 6" data-price="10000">
                             <img src="https://images.soco.id/362-Parfum-dengan-Aroma-Vanilla-100-Ribu.jpg.jpeg" alt="">
                             <p class="mb-2">NOKA Perfume - Bloom</p>
                             <p class="mb-2">Rp. 50.000</p>
                         </div>
                     </div>
-                    <div class="col-md-3">
-                        <div class="card p-3">
+                    <div class="col-md-3" data-filter-item data-kode="ASDQSAX">
+                        <div class="card p-3 add-to-cart" data-name="Product 7" data-price="10000">
                             <img src="https://images.soco.id/362-Parfum-dengan-Aroma-Vanilla-100-Ribu.jpg.jpeg" alt="">
                             <p class="mb-2">NOKA Perfume - Bloom</p>
                             <p class="mb-2">Rp. 50.000</p>
                         </div>
                     </div>
-                    <div class="col-md-3">
-                        <div class="card p-3">
-                            <img src="https://images.soco.id/362-Parfum-dengan-Aroma-Vanilla-100-Ribu.jpg.jpeg" alt="">
-                            <p class="mb-2">NOKA Perfume - Bloom</p>
-                            <p class="mb-2">Rp. 50.000</p>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="card p-3">
-                            <img src="https://images.soco.id/362-Parfum-dengan-Aroma-Vanilla-100-Ribu.jpg.jpeg" alt="">
-                            <p class="mb-2">NOKA Perfume - Bloom</p>
-                            <p class="mb-2">Rp. 50.000</p>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="card p-3">
-                            <img src="https://images.soco.id/362-Parfum-dengan-Aroma-Vanilla-100-Ribu.jpg.jpeg" alt="">
-                            <p class="mb-2">NOKA Perfume - Bloom</p>
-                            <p class="mb-2">Rp. 50.000</p>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="card p-3">
+                    <div class="col-md-3" data-filter-item data-kode="ASDQSAX">
+                        <div class="card p-3 add-to-cart" data-name="Product 8" data-price="10000">
                             <img src="https://images.soco.id/362-Parfum-dengan-Aroma-Vanilla-100-Ribu.jpg.jpeg" alt="">
                             <p class="mb-2">NOKA Perfume - Bloom</p>
                             <p class="mb-2">Rp. 50.000</p>
@@ -120,7 +99,7 @@
             </div>
         </div>
         <div class="kanan">
-            <!-- <div class="text-center">
+            <div class="text-center empty d-none">
                 <div class="kosong">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-16 inline-block" fill="none" viewBox="0 0 24 24"
                         stroke="currentColor">
@@ -130,7 +109,7 @@
                     </svg>
                     <p class="mt-0">Order Empty</p>
                 </div>
-            </div> -->
+            </div>
 
             <div class="isi">
                 <div class="d-flex justify-content-between">
@@ -141,167 +120,24 @@
                                 d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z">
                             </path>
                         </svg>
-                        <p class="fw-bold text-muted ms-1">10 Item</p>
+                        <p class="fw-bold text-muted ms-1" id="product-count">0 Item</p>
                     </div>
-                    <svg class="delete" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 inline-block" fill="none"
-                        viewBox="0 0 24 24" stroke="currentColor">
+                    <svg class="delete clear-cart" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 inline-block"
+                        fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16">
                         </path>
                     </svg>
                 </div>
                 <div class="over">
-                    <li>
-                        <div class="card p-2">
-                            <div class="d-flex justify-content-between">
-                                <div class="d-flex">
-                                    <div class="thumbnail">
-                                        <img src="https://images.soco.id/362-Parfum-dengan-Aroma-Vanilla-100-Ribu.jpg.jpeg"
-                                            width="40" height="40" alt="">
-                                    </div>
-                                    <div class="list">
-                                        <p>Parfum Nofa</p>
-                                        <small>Rp 50.000</small>
-                                    </div>
-                                </div>
-
-                                <div class="jumlah">
-                                    <button class="btn btn-secondary">-</button>
-                                    <div class="angka">
-                                        1
-                                    </div>
-                                    <button class="btn btn-secondary">+</button>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="card p-2">
-                            <div class="d-flex justify-content-between">
-                                <div class="d-flex">
-                                    <div class="thumbnail">
-                                        <img src="https://images.soco.id/362-Parfum-dengan-Aroma-Vanilla-100-Ribu.jpg.jpeg"
-                                            width="40" height="40" alt="">
-                                    </div>
-                                    <div class="list">
-                                        <p>Parfum Nofa</p>
-                                        <small>Rp 50.000</small>
-                                    </div>
-                                </div>
-
-                                <div class="jumlah">
-                                    <button class="btn btn-secondary">-</button>
-                                    <div class="angka">
-                                        1
-                                    </div>
-                                    <button class="btn btn-secondary">+</button>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="card p-2">
-                            <div class="d-flex justify-content-between">
-                                <div class="d-flex">
-                                    <div class="thumbnail">
-                                        <img src="https://images.soco.id/362-Parfum-dengan-Aroma-Vanilla-100-Ribu.jpg.jpeg"
-                                            width="40" height="40" alt="">
-                                    </div>
-                                    <div class="list">
-                                        <p>Parfum Nofa</p>
-                                        <small>Rp 50.000</small>
-                                    </div>
-                                </div>
-
-                                <div class="jumlah">
-                                    <button class="btn btn-secondary">-</button>
-                                    <div class="angka">
-                                        1
-                                    </div>
-                                    <button class="btn btn-secondary">+</button>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="card p-2">
-                            <div class="d-flex justify-content-between">
-                                <div class="d-flex">
-                                    <div class="thumbnail">
-                                        <img src="https://images.soco.id/362-Parfum-dengan-Aroma-Vanilla-100-Ribu.jpg.jpeg"
-                                            width="40" height="40" alt="">
-                                    </div>
-                                    <div class="list">
-                                        <p>Parfum Nofa</p>
-                                        <small>Rp 50.000</small>
-                                    </div>
-                                </div>
-
-                                <div class="jumlah">
-                                    <button class="btn btn-secondary">-</button>
-                                    <div class="angka">
-                                        1
-                                    </div>
-                                    <button class="btn btn-secondary">+</button>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="card p-2">
-                            <div class="d-flex justify-content-between">
-                                <div class="d-flex">
-                                    <div class="thumbnail">
-                                        <img src="https://images.soco.id/362-Parfum-dengan-Aroma-Vanilla-100-Ribu.jpg.jpeg"
-                                            width="40" height="40" alt="">
-                                    </div>
-                                    <div class="list">
-                                        <p>Parfum Nofa</p>
-                                        <small>Rp 50.000</small>
-                                    </div>
-                                </div>
-
-                                <div class="jumlah">
-                                    <button class="btn btn-secondary">-</button>
-                                    <div class="angka">
-                                        1
-                                    </div>
-                                    <button class="btn btn-secondary">+</button>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="card p-2">
-                            <div class="d-flex justify-content-between">
-                                <div class="d-flex">
-                                    <div class="thumbnail">
-                                        <img src="https://images.soco.id/362-Parfum-dengan-Aroma-Vanilla-100-Ribu.jpg.jpeg"
-                                            width="40" height="40" alt="">
-                                    </div>
-                                    <div class="list">
-                                        <p>Parfum Nofa</p>
-                                        <small>Rp 50.000</small>
-                                    </div>
-                                </div>
-
-                                <div class="jumlah">
-                                    <button class="btn btn-secondary">-</button>
-                                    <div class="angka">
-                                        1
-                                    </div>
-                                    <button class="btn btn-secondary">+</button>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
+                    <!-- keranjang -->
                 </div>
             </div>
 
             <div class="harga">
                 <div class="d-flex justify-content-between">
                     <p>Total</p>
-                    <p>Rp. 0</p>
+                    <p id="total">Rp. 0</p>
                 </div>
             </div>
 
@@ -310,7 +146,7 @@
                     <p class="mb-0">UANG</p>
                     <div class="d-flex mb-0">
                         <p>Rp. </p>
-                        <input type="number" class="form-controll">
+                        <input type="number" class="form-controll" value="" id="cash-input">
                     </div>
                 </div>
             </div>
@@ -318,11 +154,11 @@
             <div class="alert alert-primary rounded-20 mt-3" role="alert">
                 <div class="d-flex justify-content-between">
                     <p class="mb-0">KEMBALI</p>
-                    <p class="mb-0">Rp. 0</p>
+                    <p class="mb-0" id="change"></p>
                 </div>
             </div>
 
-            <button class="btn btn-primary w-100 rounded-20">Bayar Sekarang</button>
+            <button class="btn btn-primary w-100 rounded-20" id="print-cart">Bayar Sekarang</button>
         </div>
     </div>
 
@@ -376,9 +212,305 @@
             </div>
         </div>
     </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="scannerModal" tabindex="-1" aria-labelledby="scannerModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="scannerModalLabel">Barcode Scanner</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div id="scanner-container"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
         crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/quagga/0.12.1/quagga.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            var scannerActive = false;
+            var scanner;
+            $('#scanner-container canvas').css('display', 'none');
+
+            function startScanner() {
+                if (scannerActive) return;
+                scannerActive = true;
+                $('#scannerModal').modal('show');
+
+                Quagga.init({
+                    inputStream: {
+                        name: "Live",
+                        type: "LiveStream",
+                        target: document.querySelector('#scanner-container')
+                    },
+                    decoder: {
+                        readers: ['ean_reader']
+                    }
+                }, function (err) {
+                    if (err) {
+                        console.error(err);
+                        return;
+                    }
+                    Quagga.start();
+                });
+
+                scanner = Quagga.onDetected(function (result) {
+                    var code = result.codeResult.code;
+                    $('#search-input').val(code);
+                    var searchVal = code;
+                    var filterItems = $('[data-filter-item]');
+
+                    if (searchVal != '') {
+                        filterItems.addClass('d-none');
+                        $('[data-filter-item][data-kode*="' + searchVal.toString().toLowerCase() + '"]').removeClass('d-none');
+                    } else {
+                        filterItems.removeClass('d-none');
+                    }
+                    scannerActive = false;
+                    Quagga.offDetected(scanner);
+                    Quagga.stop();
+                    $('#stopButton').prop('disabled', true);
+                    $('#startButton').prop('disabled', false);
+                    $('#scannerModal').modal('hide');
+                });
+            }
+
+            function stopScanner() {
+                if (!scannerActive) return;
+                scannerActive = false;
+                Quagga.offDetected(scanner);
+                Quagga.stop();
+                $('#stopButton').prop('disabled', true);
+                $('#startButton').prop('disabled', false);
+                $('#scannerModal').modal('hide');
+            }
+
+            $('#startButton').click(function () {
+                startScanner();
+                $('#stopButton').prop('disabled', false);
+                $(this).prop('disabled', true);
+                $('.drawingBuffer').addClass('d-none');
+                $('#scanner-container video').css('width', '100%');
+            });
+
+            $('#stopButton').click(function () {
+                stopScanner();
+            });
+
+            $('#scannerModal').on('hidden.bs.modal', function () {
+                stopScanner();
+            });
+
+        });
+    </script>
+
+    <script>
+        $('[data-search]').on('keyup', function () {
+            var searchVal = $(this).val();
+            var filterItems = $('[data-filter-item]');
+
+            if (searchVal != '') {
+                filterItems.addClass('d-none');
+                $('[data-filter-item][data-kode*="' + searchVal.toString().toLowerCase() + '"]').removeClass('d-none');
+            } else {
+                filterItems.removeClass('d-none');
+            }
+        });
+
+        $(document).ready(function () {
+            var cart = [];
+
+            if (cart.length === 0) {
+                $('.empty').removeClass('d-none');
+                $('.isi').addClass('d-none')
+            }
+
+            // Tambahkan produk ke dalam keranjang dan update tampilan
+            function addToCart(name, price) {
+                var existingItem = cart.find(item => item.name === name);
+
+                if (existingItem) {
+                    existingItem.qty++;
+                    existingItem.subtotal = existingItem.qty * existingItem.price;
+                } else {
+                    cart.push({ name: name, price: price, qty: 1, subtotal: price });
+                }
+
+                updateCart();
+            }
+
+            // Perbarui keranjang setelah mengedit jumlah kuantitas produk
+            function updateQty(item, qty) {
+                if (qty === 0) {
+                    removeFromCart(item);
+                } else {
+                    item.qty = qty;
+                    item.subtotal = item.qty * item.price;
+                    updateCart();
+                }
+            }
+
+            // Hapus produk dari keranjang
+            function removeFromCart(item) {
+                var itemIndex = cart.findIndex(i => i.name === item.name);
+                cart.splice(itemIndex, 1);
+                updateCart();
+            }
+
+            // Hapus semua produk dari keranjang
+            function clearCart() {
+                cart = [];
+                updateCart();
+            }
+
+            // Update tampilan keranjang
+            function updateCart() {
+                var cartList = $('.over');
+                var total = 0;
+                var productCount = 0; // Jumlah produk yang ada di keranjang
+
+                cartList.empty();
+
+                // Tampilkan setiap produk dalam keranjang
+                for (var i = 0; i < cart.length; i++) {
+                    var item = cart[i];
+                    total += item.subtotal;
+                    productCount++;
+
+                    var appendCard = `<li>
+                        <div class="card p-2">
+                            <div class="d-flex justify-content-between">
+                                <div class="d-flex">
+                                    <div class="thumbnail">
+                                        <img src="https://images.soco.id/362-Parfum-dengan-Aroma-Vanilla-100-Ribu.jpg.jpeg"
+                                            width="40" height="40" alt="">
+                                    </div>
+                                    <div class="list">
+                                        <p>`+ item.name + `</p>
+                                        <small>Rp `+ parseInt(item.subtotal).toLocaleString() + `</small>
+                                    </div>
+                                </div>
+
+                                <div class="jumlah">
+                                    <button class="btn btn-secondary qty-button kurang" data-id="qty-decrease-`+ i + `">-</button>
+                                    <div class="angka">
+                                       `+ item.qty + `
+                                    </div>
+                                    <button class="btn btn-secondary qty-button tambah" data-id="qty-decrease-`+ i + `">+</button>
+                                </div>
+                            </div>
+                        </div>
+                    </li>`;
+                    cartList.append(appendCard);
+                }
+
+                $('#total').text('Rp. ' + parseInt(total).toLocaleString());
+                $('#product-count').text(productCount + ' Item');
+                updateChange();
+            }
+
+            // Perbarui nilai kembalian
+            function updateChange() {
+                var cashInput = parseFloat($('#cash-input').val());
+                var total = parseFloat($('#total').text().replace('Rp. ', '').replace(',', ''));
+                // console.log(cashInput);
+                // console.log(total);
+
+                if (!isNaN(cashInput) && cashInput >= total) {
+                    var change = parseFloat(cashInput) - parseFloat(total);
+                    $('#change-label').removeClass('d-none');
+                    $('#change').text('Rp. ' + parseInt(change).toLocaleString());
+                    console.log(change);
+                } else {
+                    $('#change-label').addClass('d-none');
+                    $('#change').text('0');
+                }
+            }
+
+            // Ketika produk diklik, tambahkan ke keranjang
+            $('.add-to-cart').on('click', function () {
+                var name = $(this).data('name');
+                var price = parseFloat($(this).data('price'));
+                addToCart(name, price);
+
+                $('#search-input').val(null);
+                var filterItems = $('[data-filter-item]');
+                filterItems.removeClass('d-none');
+                $('.empty').addClass('d-none');
+                $('.isi').removeClass('d-none')
+            });
+
+            // Ketika tombol "Hapus Semua" diklik, hapus semua produk dari keranjang
+            $('.clear-cart').on('click', function () {
+                clearCart();
+                $('.empty').removeClass('d-none');
+                $('.isi').addClass('d-none')
+            });
+
+            // Ketika tombol "Kurang" diklik, kurangi jumlah qty
+            $(document).on('click', '.kurang', function () {
+                var index = $(this).closest('li').index();
+                var item = cart[index];
+
+                updateQty(item, item.qty - 1);
+            });
+
+            // Ketika tombol "Tambah" diklik, tambahkan jumlah qty
+            $(document).on('click', '.tambah', function () {
+                var index = $(this).closest('li').index();
+                var item = cart[index];
+
+                updateQty(item, item.qty + 1);
+            });
+
+            // Ketika input jumlah uang berubah, perbarui nilai kembalian
+            $('#cash-input').on('input', function () {
+                updateChange();
+            });
+
+            // Ketika tombol "Print" diklik, cetak semua produk yang ada di keranjang
+            $('#print-cart').on('click', function () {
+                printCart();
+            });
+
+            // Fungsi untuk mencetak semua produk yang ada di keranjang
+            function printCart() {
+                var printWindow = window.open('', '_blank');
+                var cartList = $('#cart ul').clone();
+                var total = $('#total').text();
+                var productCount = $('#product-count').text();
+
+                // Ubah tata letak dan tampilan produk untuk mencetak dengan ukuran kertas thermal
+                // Sesuaikan CSS sesuai dengan kebutuhan
+
+                // Misalnya, dapat menambahkan CSS berikut ini:
+                cartList.css('width', '80mm');
+                // cartList.css('font-size', '12px');
+                // cartList.css('margin-bottom', '20px');
+
+                var htmlContent = `<div class="print">
+                <h2>Cart</h2>
+                <p>Product Count: ${productCount}</p>
+                <p>Total: ${total}</p>
+                <hr>
+                </div>`;
+
+                printWindow.document.open();
+                printWindow.document.write(htmlContent);
+                printWindow.document.write(cartList.prop('outerHTML'));
+                printWindow.document.close();
+                printWindow.print();
+                printWindow.close();
+            }
+        });
+
+    </script>
 </body>
 
 </html>

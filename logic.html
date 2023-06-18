@@ -83,7 +83,7 @@
             <h2>Cart</h2>
             <ul></ul>
             <p>Total: Rp<span id="total">0</span></p>
-            <p>Discount: <input type="number" id="discount-input" placeholder="Discount (%)"></p>
+            <p>Discount: <input type="number" value="0" id="discount-input" placeholder="Discount (%)"></p>
             <p>Subtotal: Rp<span id="subtotal">0</span></p>
             <input type="number" id="cash-input" placeholder="Jumlah Uang">
             <p id="change-label" class="d-none">Kembalian: Rp<span id="change">0</span></p>
@@ -94,139 +94,146 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
     <script>
         $(document).ready(function () {
-            var cart = [];
+                var cart = [];
 
-            // Tambahkan produk ke dalam keranjang dan update tampilan
-            function addToCart(name, price) {
-                var existingItem = cart.find(item => item.name === name);
+                // Tambahkan produk ke dalam keranjang dan update tampilan
+                function addToCart(name, price) {
+                    var existingItem = cart.find(item => item.name === name);
 
-                if (existingItem) {
-                    existingItem.qty++;
-                    existingItem.subtotal = existingItem.qty * existingItem.price;
-                } else {
-                    cart.push({ name: name, price: price, qty: 1, subtotal: price });
-                }
+                    if (existingItem) {
+                        existingItem.qty++;
+                        existingItem.subtotal = existingItem.qty * existingItem.price;
+                    } else {
+                        cart.push({ name: name, price: price, qty: 1, subtotal: price });
+                    }
 
-                updateCart();
-            }
-
-            // Perbarui keranjang setelah mengedit jumlah kuantitas produk
-            function updateQty(item, qty) {
-                if (qty === 0) {
-                    removeFromCart(item);
-                } else {
-                    item.qty = qty;
-                    item.subtotal = item.qty * item.price;
                     updateCart();
                 }
-            }
 
-            // Hapus produk dari keranjang
-            function removeFromCart(item) {
-                var itemIndex = cart.findIndex(i => i.name === item.name);
-                cart.splice(itemIndex, 1);
-                updateCart();
-            }
+                // Perbarui keranjang setelah mengedit jumlah kuantitas produk
+                function updateQty(item, qty) {
+                    if (qty === 0) {
+                        removeFromCart(item);
+                    } else {
+                        item.qty = qty;
+                        item.subtotal = item.qty * item.price;
+                        updateCart();
+                    }
+                }
 
-            // Hapus semua produk dari keranjang
-            function clearCart() {
-                cart = [];
-                updateCart();
-            }
+                // Hapus produk dari keranjang
+                function removeFromCart(item) {
+                    var itemIndex = cart.findIndex(i => i.name === item.name);
+                    cart.splice(itemIndex, 1);
+                    updateCart();
+                }
 
-            // Update tampilan keranjang
-            function updateCart() {
-                var cartList = $('#cart ul');
-                var total = 0;
+                // Hapus semua produk dari keranjang
+                function clearCart() {
+                    cart = [];
+                    updateCart();
+                }
 
-                cartList.empty();
+                // Update tampilan keranjang
+                function updateCart() {
+                    var cartList = $('#cart ul');
+                    var total = 0;
 
-                // Tampilkan setiap produk dalam keranjang
-                for (var i = 0; i < cart.length; i++) {
-                    var item = cart[i];
-                    total += item.subtotal;
+                    cartList.empty();
 
-                    var listItem = $('<li></li>');
-                    var nameElement = $('<span></span>').text(item.name);
-                    var qtyControls = $('<div></div>').addClass('qty-controls');
-                    var qtyDisplay = $('<span></span>').text('Qty: ' + item.qty);
-                    var priceDisplay = $('<span></span>').text('Price: Rp' + item.subtotal);
-                    var qtyIncreaseButton = $('<button></button>').addClass('btn btn-primary btn-sm').text('+');
-                    var qtyDecreaseButton = $('<button></button>').addClass('btn btn-primary btn-sm').text('-');
-                    var deleteButton = $('<button></button>').addClass('btn btn-danger btn-sm').html('<i class="fas fa-trash"></i>');
+                    // Tampilkan setiap produk dalam keranjang
+                    for (var i = 0; i < cart.length; i++) {
+                        var item = cart[i];
+                        total += item.subtotal;
 
-                    qtyIncreaseButton.on('click', (function (item) {
-                        return function () {
+                        var listItem = $('<li></li>');
+                        var nameElement = $('<span></span>').text(item.name);
+                        var qtyControls = $('<div></div>').addClass('qty-controls');
+                        var qtyDisplay = $('<span></span>').text('Qty: ' + item.qty);
+                        var priceElement = $('<span></span>').text('Harga: ' + item.subtotal);
+                        var qtyIncreaseButton = $('<button></button>').addClass('btn btn-primary btn-sm qty-button tambah').text('+');
+                        var qtyDecreaseButton = $('<button></button>').addClass('btn btn-primary btn-sm qty-button kurang').text('-');
+                        var deleteButton = $('<button></button>').addClass('btn btn-danger btn-sm').html('<i class="fas fa-trash"></i>');
+
+                        qtyIncreaseButton.on('click', function () {
+                            var index = $(this).closest('li').index();
+                            var item = cart[index];
+
                             updateQty(item, item.qty + 1);
-                        };
-                    })(item));
+                        });
 
-                    qtyDecreaseButton.on('click', (function (item) {
-                        return function () {
+                        qtyDecreaseButton.on('click', function () {
+                            var index = $(this).closest('li').index();
+                            var item = cart[index];
+
                             updateQty(item, item.qty - 1);
-                        };
-                    })(item));
+                        });
 
-                    deleteButton.on('click', (function (item) {
-                        return function () {
+                        deleteButton.on('click', function () {
+                            var index = $(this).closest('li').index();
+                            var item = cart[index];
+
                             removeFromCart(item);
-                        };
-                    })(item));
+                        });
 
-                    qtyControls.append(qtyDecreaseButton, qtyDisplay, qtyIncreaseButton);
-                    listItem.append(nameElement, qtyControls, priceDisplay, deleteButton);
-                    cartList.append(listItem);
+                        qtyControls.append(qtyDecreaseButton, qtyDisplay, qtyIncreaseButton);
+                        listItem.append(nameElement, ' - ', qtyControls, priceElement, deleteButton);
+                        cartList.append(listItem);
+                    }
+
+                    $('#total').text(total);
+                    updateChange();
                 }
 
-                $('#total').text(total);
-                updateChange();
-            }
+                // Perbarui nilai kembali
+                function updateChange() {
+                    var cashInput = parseFloat($('#cash-input').val());
+                    var total = parseFloat($('#total').text());
 
-
-            // Perbarui nilai kembalian
-            function updateChange() {
-                var cashInput = parseFloat($('#cash-input').val());
-                var total = parseFloat($('#total').text());
-                var discount = parseFloat($('#discount-input').val());
-
-                if (!isNaN(cashInput) && cashInput >= total) {
-                    var subtotal = total * (1 - discount / 100);
-                    var change = cashInput - subtotal;
-
-                    $('#subtotal').text(subtotal);
-                    $('#change-label').removeClass('d-none');
-                    $('#change').text(change.toFixed(2));
-                } else {
-                    $('#change-label').addClass('d-none');
-                    $('#change').text('0.00');
+                    if (!isNaN(cashInput) && cashInput >= total) {
+                        var change = cashInput - total;
+                        $('#change-label').removeClass('d-none');
+                        $('#change').html(change);
+                    } else {
+                        $('#change-label').addClass('d-none');
+                        $('#change').html('0');
+                    }
                 }
-            }
 
-            // Ketika input jumlah uang berubah, perbarui nilai kembalian
-            $('#cash-input').on('input', function () {
-                updateChange();
+                // Ketika produk diklik, tambahkan ke keranjang
+                $('.add-to-cart').on('click', function () {
+                    var name = $(this).data('name');
+                    var price = parseFloat($(this).data('price'));
+
+                    addToCart(name, price);
+                });
+
+                // Ketika tombol "Hapus Semua" diklik, hapus semua produk dari keranjang
+                $('#clear-cart').on('click', function () {
+                    clearCart();
+                });
+
+                // Ketika tombol "Kurang" diklik, kurangi jumlah qty
+                $(document).on('click', '.kurang', function () {
+                    var index = $(this).closest('li').index();
+                    var item = cart[index];
+
+                    updateQty(item, item.qty - 1);
+                });
+
+                // Ketika tombol "Tambah" diklik, tambahkan jumlah qty
+                $(document).on('click', '.tambah', function () {
+                    var index = $(this).closest('li').index();
+                    var item = cart[index];
+
+                    updateQty(item, item.qty + 1);
+                });
+
+                // Ketika input jumlah uang berubah, perbarui nilai kembalian
+                $('#cash-input').on('input', function () {
+                    updateChange();
+                });
             });
-
-            // Ketika input potongan diskon berubah, perbarui nilai kembalian
-            $('#discount-input').on('input', function () {
-                updateChange();
-            });
-
-            
-
-            // Ketika produk diklik, tambahkan ke keranjang
-            $('.add-to-cart').on('click', function () {
-                var name = $(this).data('name');
-                var price = parseFloat($(this).data('price'));
-
-                addToCart(name, price);
-            });
-
-            // Ketika tombol "Hapus Semua" diklik, hapus semua produk dari keranjang
-            $('#clear-cart').on('click', function () {
-                clearCart();
-            });
-        });
 
     </script>
 </body>
