@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Barcode Scanner</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+    <style>
+        #scanner-container video {
+            width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Barcode Scanner</h1>
+    <button id="startButton" class="btn btn-primary">Start</button>
+    <button id="stopButton" class="btn btn-danger" disabled>Stop</button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="scannerModal" tabindex="-1" aria-labelledby="scannerModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="scannerModalLabel">Barcode Scanner</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div id="scanner-container"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h2 id="result"></h2>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/quagga/0.12.1/quagga.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            var scannerActive = false;
+            var scanner;
+            $('#scanner-container canvas').css('display', 'none');
+
+            function startScanner() {
+                if (scannerActive) return;
+                scannerActive = true;
+                $('#scannerModal').modal('show');
+
+                Quagga.init({
+                    inputStream: {
+                        name: "Live",
+                        type: "LiveStream",
+                        target: document.querySelector('#scanner-container')
+                    },
+                    decoder: {
+                        readers: ['ean_reader']
+                    }
+                }, function (err) {
+                    if (err) {
+                        console.error(err);
+                        return;
+                    }
+                    Quagga.start();
+                });
+
+                scanner = Quagga.onDetected(function (result) {
+                    var code = result.codeResult.code;
+                    $('#result').text("Barcode: " + code);
+                    scannerActive = false;
+                    Quagga.offDetected(scanner);
+                    Quagga.stop();
+                    $('#stopButton').prop('disabled', true);
+                    $('#startButton').prop('disabled', false);
+                    $('#scannerModal').modal('hide');
+                });
+            }
+
+            function stopScanner() {
+                if (!scannerActive) return;
+                scannerActive = false;
+                Quagga.offDetected(scanner);
+                Quagga.stop();
+                $('#stopButton').prop('disabled', true);
+                $('#startButton').prop('disabled', false);
+                $('#scannerModal').modal('hide');
+            }
+
+            $('#startButton').click(function () {
+                startScanner();
+                $('#stopButton').prop('disabled', false);
+                $(this).prop('disabled', true);
+                 $('.drawingBuffer').addClass('d-none');
+                 $('#scanner-container video').css('width', '100%');
+            });
+
+            $('#stopButton').click(function () {
+                stopScanner();
+            });
+
+            $('#scannerModal').on('hidden.bs.modal', function () {
+                stopScanner();
+            });
+          
+        });
+    </script>
+</body>
+
+</html>

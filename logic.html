@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Point of Sale</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        #cart {
+            padding: 10px;
+            background-color: #f2f2f2;
+            border: 1px solid #ccc;
+            margin-bottom: 10px;
+        }
+
+        #cart ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        #cart ul li {
+            margin-bottom: 5px;
+        }
+
+        .qty-controls {
+            display: flex;
+        }
+
+        .qty-controls button {
+            margin-right: 5px;
+        }
+
+        #cash-input {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Point of Sale</h1>
+
+    <div class="container">
+        <div class="row" id="products">
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Product 1</h5>
+                        <p class="card-text">Price: Rp10.000</p>
+                        <button class="btn btn-primary add-to-cart" data-name="Product 1" data-price="10000">
+                            Add to Cart <i class="fas fa-cart-plus"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Product 2</h5>
+                        <p class="card-text">Price: Rp15.000</p>
+                        <button class="btn btn-primary add-to-cart" data-name="Product 2" data-price="15000">
+                            Add to Cart <i class="fas fa-cart-plus"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Product 3</h5>
+                        <p class="card-text">Price: Rp20.000</p>
+                        <button class="btn btn-primary add-to-cart" data-name="Product 3" data-price="20000">
+                            Add to Cart <i class="fas fa-cart-plus"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div id="cart">
+            <h2>Cart</h2>
+            <ul></ul>
+            <p>Total: Rp<span id="total">0</span></p>
+            <p>Discount: <input type="number" id="discount-input" placeholder="Discount (%)"></p>
+            <p>Subtotal: Rp<span id="subtotal">0</span></p>
+            <input type="number" id="cash-input" placeholder="Jumlah Uang">
+            <p id="change-label" class="d-none">Kembalian: Rp<span id="change">0</span></p>
+            <button id="clear-cart" class="btn btn-danger">Hapus Semua <i class="fas fa-trash"></i></button>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            var cart = [];
+
+            // Tambahkan produk ke dalam keranjang dan update tampilan
+            function addToCart(name, price) {
+                var existingItem = cart.find(item => item.name === name);
+
+                if (existingItem) {
+                    existingItem.qty++;
+                    existingItem.subtotal = existingItem.qty * existingItem.price;
+                } else {
+                    cart.push({ name: name, price: price, qty: 1, subtotal: price });
+                }
+
+                updateCart();
+            }
+
+            // Perbarui keranjang setelah mengedit jumlah kuantitas produk
+            function updateQty(item, qty) {
+                if (qty === 0) {
+                    removeFromCart(item);
+                } else {
+                    item.qty = qty;
+                    item.subtotal = item.qty * item.price;
+                    updateCart();
+                }
+            }
+
+            // Hapus produk dari keranjang
+            function removeFromCart(item) {
+                var itemIndex = cart.findIndex(i => i.name === item.name);
+                cart.splice(itemIndex, 1);
+                updateCart();
+            }
+
+            // Hapus semua produk dari keranjang
+            function clearCart() {
+                cart = [];
+                updateCart();
+            }
+
+            // Update tampilan keranjang
+            function updateCart() {
+                var cartList = $('#cart ul');
+                var total = 0;
+
+                cartList.empty();
+
+                // Tampilkan setiap produk dalam keranjang
+                for (var i = 0; i < cart.length; i++) {
+                    var item = cart[i];
+                    total += item.subtotal;
+
+                    var listItem = $('<li></li>');
+                    var nameElement = $('<span></span>').text(item.name);
+                    var qtyControls = $('<div></div>').addClass('qty-controls');
+                    var qtyDisplay = $('<span></span>').text('Qty: ' + item.qty);
+                    var priceDisplay = $('<span></span>').text('Price: Rp' + item.subtotal);
+                    var qtyIncreaseButton = $('<button></button>').addClass('btn btn-primary btn-sm').text('+');
+                    var qtyDecreaseButton = $('<button></button>').addClass('btn btn-primary btn-sm').text('-');
+                    var deleteButton = $('<button></button>').addClass('btn btn-danger btn-sm').html('<i class="fas fa-trash"></i>');
+
+                    qtyIncreaseButton.on('click', (function (item) {
+                        return function () {
+                            updateQty(item, item.qty + 1);
+                        };
+                    })(item));
+
+                    qtyDecreaseButton.on('click', (function (item) {
+                        return function () {
+                            updateQty(item, item.qty - 1);
+                        };
+                    })(item));
+
+                    deleteButton.on('click', (function (item) {
+                        return function () {
+                            removeFromCart(item);
+                        };
+                    })(item));
+
+                    qtyControls.append(qtyDecreaseButton, qtyDisplay, qtyIncreaseButton);
+                    listItem.append(nameElement, qtyControls, priceDisplay, deleteButton);
+                    cartList.append(listItem);
+                }
+
+                $('#total').text(total);
+                updateChange();
+            }
+
+
+            // Perbarui nilai kembalian
+            function updateChange() {
+                var cashInput = parseFloat($('#cash-input').val());
+                var total = parseFloat($('#total').text());
+                var discount = parseFloat($('#discount-input').val());
+
+                if (!isNaN(cashInput) && cashInput >= total) {
+                    var subtotal = total * (1 - discount / 100);
+                    var change = cashInput - subtotal;
+
+                    $('#subtotal').text(subtotal);
+                    $('#change-label').removeClass('d-none');
+                    $('#change').text(change.toFixed(2));
+                } else {
+                    $('#change-label').addClass('d-none');
+                    $('#change').text('0.00');
+                }
+            }
+
+            // Ketika input jumlah uang berubah, perbarui nilai kembalian
+            $('#cash-input').on('input', function () {
+                updateChange();
+            });
+
+            // Ketika input potongan diskon berubah, perbarui nilai kembalian
+            $('#discount-input').on('input', function () {
+                updateChange();
+            });
+
+            
+
+            // Ketika produk diklik, tambahkan ke keranjang
+            $('.add-to-cart').on('click', function () {
+                var name = $(this).data('name');
+                var price = parseFloat($(this).data('price'));
+
+                addToCart(name, price);
+            });
+
+            // Ketika tombol "Hapus Semua" diklik, hapus semua produk dari keranjang
+            $('#clear-cart').on('click', function () {
+                clearCart();
+            });
+        });
+
+    </script>
+</body>
+
+</html>
