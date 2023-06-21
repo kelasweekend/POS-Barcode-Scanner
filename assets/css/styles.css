@@ -78,7 +78,7 @@ p {
 }
 
 .kiri .menu .card img {
-    width: 170px;
+    width: 100%;
     height: 180px;
     margin: 0 auto;
     border-radius: 15px;
