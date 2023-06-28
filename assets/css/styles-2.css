@@ -1,0 +1,294 @@
+body {
+    height: 100vh;
+    background-color: #eceff1;
+    padding: 20px;
+}
+
+.rounded-20 {
+    border-radius: 20px;
+}
+
+.rounded-15 {
+    border-radius: 15px;
+}
+
+p {
+    margin-bottom: 0px;
+}
+
+.kiri {
+    width: 100%;
+    border-radius: 20px;
+    height: 100%;
+}
+
+.kiri .search {
+    background-color: #ffff;
+    width: 100%;
+    height: 70px;
+    border-radius: 20px;
+    padding: 1rem;
+}
+
+.kiri .search .icon {
+    background-color: #00bcd4;
+    width: 40px;
+    padding: 8px;
+    border-radius: 15px;
+    color: #ffff;
+}
+
+.kiri .search .cari {
+    border: none;
+    margin-left: 10px;
+    font-weight: 600;
+    margin-bottom: 0px;
+    border: none;
+}
+
+.kiri .search .cari:focus {
+    outline: none;
+}
+
+.kiri .search .btn-desktop {
+    background-color: #00bcd4;
+    width: 100%;
+    font-weight: 600;
+    padding: 8px;
+    border-radius: 15px;
+    color: #ffff;
+    border: none;
+}
+
+.kiri .menu {
+    margin-top: 10px;
+    height: 85vh;
+    overflow-y: scroll;
+}
+
+.kiri .menu .card {
+    border: none;
+    background-color: #ffff;
+    border-radius: 15px;
+    text-align: center;
+    font-weight: 600;
+    margin-top: 20px;
+}
+
+.kiri .menu .card img {
+    width: 100%;
+    height: 180px;
+    margin: 0 auto;
+    border-radius: 15px;
+    margin-top: 15px;
+    margin-bottom: 20px;
+}
+
+
+@media (max-width: 600px) {
+    .kiri .menu {
+        display: none;
+    }
+}
+
+.kanan {
+    border-radius: 20px;
+    width: 100%;
+    background-color: #ffff;
+    height: 100%;
+    padding: 1rem;
+}
+
+.kanan .kosong {
+    opacity: .25;
+    width: 100%;
+    height: 56vh;
+}
+
+.kanan .kosong svg {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 5px;
+    margin-top: 20vh;
+}
+
+.kanan .harga {
+    margin-top: 30px;
+    font-weight: 700;
+}
+
+.kanan .cazh {
+    background-color: #eceff1;
+    border-radius: 20px;
+    margin-top: 20px;
+    font-weight: 700;
+}
+
+.kanan .cazh input {
+    width: 100px;
+    height: 30px;
+    margin-left: 15px;
+    border-radius: 10px;
+    background-color: #ffff;
+    border: none;
+    text-align: right;
+    padding-right: 10px;
+}
+
+.kanan .cazh input:active {
+    border: none;
+}
+
+.kanan .alert {
+    background-color: #e0f7fa;
+    border: none;
+    color: #00bcd4;
+    font-weight: 700;
+}
+
+.kanan .btn-primary {
+    background-color: #00bcd4;
+    border: none;
+    height: 50px;
+}
+
+.kanan .isi {
+    width: 100%;
+    height: 56vh;
+}
+
+.kanan .isi .delete:hover {
+    color: red;
+}
+
+.kanan .isi .over {
+    overflow-y: scroll;
+    height: 50vh;
+}
+
+.kanan .isi li {
+    list-style-type: none;
+    margin-top: 10px;
+}
+
+.kanan .isi svg {
+    width: 24px;
+    opacity: .60;
+    margin-bottom: 20px;
+}
+
+.kanan .isi li .card {
+    background-color: #eceff1;
+    border: none;
+    border-radius: 15px;
+    height: 65px;
+}
+
+.kanan .isi li .card .thumbnail {
+    padding: 5px;
+    border-radius: 15px;
+    background-color: #fff;
+}
+
+.kanan .isi li .card .thumbnail img {
+    border-radius: 10px;
+}
+
+.kanan .isi li .card .list {
+    margin-left: 10px;
+}
+
+.kanan .isi li .card .list p {
+    font-weight: 600;
+    margin-bottom: -5px;
+    margin-top: 5px;
+}
+
+.kanan .isi li .card .list small {
+    font-weight: 500;
+}
+
+.kanan .isi li .card .jumlah {
+    display: flex;
+    margin-top: 10px;
+    margin-right: 10px;
+}
+
+.kanan .isi li .card .jumlah .btn {
+    width: 30px;
+    height: 30px;
+    padding: 0px;
+}
+
+.kanan .isi li .card .jumlah .angka {
+    width: 30px;
+    height: 30px;
+    background-color: #fff;
+    margin-left: 10px;
+    margin-right: 10px;
+    text-align: center;
+    padding: 4px;
+    border-radius: 7px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+@media (max-width: 600px) {
+    .kanan {
+        margin-top: 15px;
+    }
+
+    .kanan .kosong {
+        opacity: .25;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+
+/* modal scan */
+.modal-notif {
+    border-radius: 1rem;
+}
+
+.modal-notif h3 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+}
+
+.modal-notif .fab {
+    color: #53354b;
+    ;
+    font-size: 90px;
+    padding: 30px 0px;
+}
+
+.modal-notif .b1 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    background-color: #53354b;
+    margin-top: 50px;
+    height: 49px;
+    font-size: 17px;
+    padding-top: 8px;
+}
+
+@media (max-width: 600px) {
+    .modal .modal-notif {
+        height: 500px;
+    }
+
+    .modal .modal-notif video {
+        height: 300px;
+    }
+
+    .modal .modal-notif img {
+        margin: 30px 0px 30px 52px;
+        height: 200px;
+        width: 200px;
+    }
+
+    .modal .modal-notif .desc {
+        text-align: center;
+    }
+}
