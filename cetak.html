@@ -54,7 +54,7 @@
             padding: 5px;
             text-align: left;
             /* border-bottom: 1px solid #ccc; */
-            border-top: 2px solid black;
+            border-top: 1px solid black;
             font-size: 12px;
         }
 
@@ -66,6 +66,12 @@
         .invoice-total p {
             margin: 5px 0;
             text-align: center;
+        }
+
+        .invoice-total img {
+            width: 100px;
+            margin-right: 50px;
+            margin-top: 5px;
         }
 
         .info-kasir {
@@ -81,7 +87,7 @@
         }
 
         .garis {
-            border-bottom: 2px dashed black;
+            border-bottom: 1px dashed black;
         }
     </style>
 </head>
@@ -128,11 +134,12 @@
         <div class="garis"></div>
         <div class="invoice-total">
             <p>Terima kasih telah berbelanja</p>
+            <img src="https://barcodeapi.org/api/128/kirimnotif.com" alt="">
         </div>
     </div>
 </body>
 <script>
-    // window.print();
+    window.print();
 </script>
 
 </html>
