@@ -22,7 +22,11 @@
 
         .invoice-header {
             text-align: center;
-            margin-bottom: 10px;
+            margin-bottom: 5px;
+        }
+
+        .invoice-header img {
+            width: 100px;
         }
 
         .invoice-header h2 {
@@ -42,6 +46,7 @@
         .invoice-table {
             width: 100%;
             margin-bottom: 10px;
+            margin-top: 20px;
         }
 
         .invoice-table th,
@@ -49,7 +54,7 @@
             padding: 5px;
             text-align: left;
             /* border-bottom: 1px solid #ccc; */
-            border-top: 1px solid #ccc;
+            border-top: 2px solid black;
             font-size: 12px;
         }
 
@@ -66,17 +71,17 @@
         .info-kasir {
             display: flex;
             justify-content: space-between;
-            margin-top: 8px;
+            margin-top: 15px;
             margin-bottom: 8px;
         }
 
         .info-kasir p {
             font-size: 11px;
-            margin-bottom: 0px;
+            margin-bottom: -15px;
         }
 
         .garis {
-            border-bottom: 1px dashed #ccc;
+            border-bottom: 2px dashed black;
         }
     </style>
 </head>
@@ -84,11 +89,12 @@
 <body>
     <div class="invoice-container">
         <div class="invoice-header">
-            <h2>GudangParfum</h2>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/0/01/Logo_Kasir_Pintar.png" alt="">
+            <!-- <h2>GudangParfum</h2> -->
         </div>
         <div class="invoice-info">
             <p>Jalan Contoh No. 123</p>
-            <p>Kota, Negara</p>
+            <p>Kota, 0819xxx</p>
         </div>
         <div class="garis"></div>
         <div class="info-kasir">
@@ -126,7 +132,7 @@
     </div>
 </body>
 <script>
-    window.print();
+    // window.print();
 </script>
 
 </html>
