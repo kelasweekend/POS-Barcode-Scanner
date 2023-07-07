@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            font-size: 12px;
+        }
+
+        .invoice-container {
+            width: 58mm;
+            margin: 0 auto;
+            padding: 10px;
+        }
+
+        .invoice-header {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .invoice-header h2 {
+            font-size: 14px;
+        }
+
+        .invoice-info {
+            margin-bottom: 10px;
+        }
+
+        .invoice-info p {
+            margin: 5px 0;
+        }
+
+        .invoice-table {
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
+        .invoice-table th,
+        .invoice-table td {
+            padding: 5px;
+            text-align: left;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .invoice-total {
+            text-align: right;
+            margin-top: 10px;
+        }
+
+        .invoice-total p {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="invoice-container">
+        <div class="invoice-header">
+            <h2>INVOICE PEMBELIAN</h2>
+        </div>
+        <div class="invoice-info">
+            <p>Toko ABC</p>
+            <p>Jalan Contoh No. 123</p>
+            <p>Kota, Negara</p>
+        </div>
+        <table class="invoice-table">
+            <thead>
+                <tr>
+                    <th>Nama Barang</th>
+                    <th>Harga</th>
+                    <th>Jumlah</th>
+                    <th>Subtotal</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Produk A</td>
+                    <td>100.000</td>
+                    <td>2</td>
+                    <td>200.000</td>
+                </tr>
+                <tr>
+                    <td>Produk B</td>
+                    <td>150.000</td>
+                    <td>1</td>
+                    <td>150.000</td>
+                </tr>
+                <tr>
+                    <td colspan="3">Total</td>
+                    <td>350.000</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="invoice-total">
+            <p>Terima kasih telah berbelanja!</p>
+        </div>
+    </div>
+</body>
+<script>
+    window.print();
+</script>
+
+</html>
